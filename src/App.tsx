@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-function App() {
+import MainTemplate from 'components/templates/MainTemplate';
+
+const App: FunctionComponent = () => {
   return (
-    <div></div>
+    <MainTemplate>
+      <div>
+        Main
+      </div>
+    </MainTemplate>
   );
 };
 
