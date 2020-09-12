@@ -5,12 +5,14 @@ type MainTemplateProps = {
 };
 
 const MainTemplate: FunctionComponent<MainTemplateProps> = ({ children }) => (
-    <div>
-        <div>
+    <>
+        <nav>
             Navbar
-        </div>
-        {children}
-    </div>
+        </nav>
+        <main>
+            {children}
+        </main>
+    </>
 );
 
 export default MainTemplate;

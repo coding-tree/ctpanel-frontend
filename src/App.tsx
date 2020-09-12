@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from 'react';
 
-import MainTemplate from 'components/templates/MainTemplate';
+import MainTemplate from 'templates/MainTemplate';
+import HomePage from 'pages/HomePage';
 
 const App: FunctionComponent = () => {
   return (
     <MainTemplate>
-      <div>
-        Main
-      </div>
+      <HomePage />
     </MainTemplate>
   );
 };
