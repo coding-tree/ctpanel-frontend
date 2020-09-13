@@ -6,7 +6,7 @@ interface NavbarElement {
     linkText: string
 };
 
-const navbarElements: NavbarElement[] = [
+const navbarElements: Array<NavbarElement> = [
     {    
         icon: null,
         link: "string",
@@ -46,6 +46,9 @@ const NavigationBar: FunctionComponent = () => (
                 {
                     navbarElements.map(({icon, link, linkText}) => (
                         <li>
+                            <i>
+
+                            </i>
                             <a>
                                 {linkText}
                             </a>
