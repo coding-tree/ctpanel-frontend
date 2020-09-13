@@ -1,5 +1,39 @@
 import React, { FunctionComponent } from 'react';
 
+interface NavbarElement {
+    icon: null,
+    link: string,
+    linkText: string
+};
+
+const navbarElements: NavbarElement[] = [
+    {    
+        icon: null,
+        link: "string",
+        linkText: "Strona główna"
+    },
+    {    
+        icon: null,
+        link: "string",
+        linkText: "Harmonogram"
+    },
+    {    
+        icon: null,
+        link: "string",
+        linkText: "Baza tematów"
+    },
+    {    
+        icon: null,
+        link: "string",
+        linkText: "Historia"
+    },
+    {    
+        icon: null,
+        link: "string",
+        linkText: "Konto"
+    }
+];
+
 const NavigationBar: FunctionComponent = () => (
     <section>
         <header>
@@ -9,31 +43,15 @@ const NavigationBar: FunctionComponent = () => (
         </header>
         <nav>
            <ul>
-                <li>
-                    <a>
-                        Strona główna
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        Harmonogram
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        Baza tematów
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        Historia
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        Konto
-                    </a>
-                </li>
+                {
+                    navbarElements.map(({icon, link, linkText}) => (
+                        <li>
+                            <a>
+                                {linkText}
+                            </a>
+                        </li>
+                    ))
+                }
            </ul>
         </nav>
         <footer>
