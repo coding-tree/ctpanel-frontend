@@ -1,34 +1,34 @@
 import React, { FunctionComponent } from 'react';
 
 interface NavbarElement {
-    icon: null,
+    icon: string,
     link: string,
     linkText: string
 };
 
 const navbarElements: Array<NavbarElement> = [
     {    
-        icon: null,
+        icon: "fa-home",
         link: "string",
         linkText: "Strona główna"
     },
     {    
-        icon: null,
+        icon: "fa-clock",
         link: "string",
         linkText: "Harmonogram"
     },
     {    
-        icon: null,
+        icon: "fa-database",
         link: "string",
         linkText: "Baza tematów"
     },
     {    
-        icon: null,
+        icon: "fa-calendar-alt",
         link: "string",
         linkText: "Historia"
     },
     {    
-        icon: null,
+        icon: "fa-user-circle",
         link: "string",
         linkText: "Konto"
     }
@@ -46,9 +46,7 @@ const NavigationBar: FunctionComponent = () => (
                 {
                     navbarElements.map(({icon, link, linkText}) => (
                         <li>
-                            <i>
-
-                            </i>
+                            <i className={`fas ${icon}`}></i>
                             <a>
                                 {linkText}
                             </a>
