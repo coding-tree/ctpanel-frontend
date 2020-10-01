@@ -1,21 +1,31 @@
 import React, { FunctionComponent } from 'react';
 
 type NearestMeetingProps = {
-    author: string,
-    title: string,
-    date: Date,
+    // author: string,
+    // title: string,
+    // date: Date,
+    // description: string,
+    // usableLinks?: Array<string>
+
+    date: number,
     description: string,
-    usableLinks?: Array<string>
+    duration: string,
+    leader: string,
+    meetingHref: string,
+    //tags: Array<string>,
+    topic: string,
+    //usefulLinks: Array<string>,
+    _id: string
 };
 
-const NearestMeeting: FunctionComponent<NearestMeetingProps> = ({author, title, date, description, usableLinks}) => (
-    <article>
+const NearestMeeting: FunctionComponent<NearestMeetingProps> = ({date, description, duration, leader, meetingHref, topic, _id}) => (
+    <article key={_id}>
         <header>
             <p className="author">
-                {author}
+                {leader}
             </p>
             <h1 className="title">
-                {title}
+                {topic}
             </h1>
             <p className="date">
                 {/* {date} */}
@@ -26,7 +36,7 @@ const NearestMeeting: FunctionComponent<NearestMeetingProps> = ({author, title, 
                 {description}
             </p>
             <h2 className="usableLink"></h2>
-            {
+            {/* {
                 usableLinks
                 ?
                     <ul>
@@ -39,7 +49,7 @@ const NearestMeeting: FunctionComponent<NearestMeetingProps> = ({author, title, 
                         }
                     </ul>
                 :   <p>Brak przydatnych linków</p>
-            }
+            } */}
         </section>
     </article>
 );

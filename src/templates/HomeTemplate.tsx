@@ -3,11 +3,15 @@ import React, { FunctionComponent } from 'react';
 import NearestMeeting from 'components/molecules/NearestMeeting';
 
 interface NearestMeeting {
-    author: string,
-    title: string,
-    date: Date,
+    date: number,
     description: string,
-    usableLinks?: Array<string>
+    duration: string,
+    leader: string,
+    meetingHref: string,
+    //tags: Array<string>,
+    topic: string,
+    //usefulLinks: Array<string>,
+    _id: string
 };
 
 interface NearestMeetingsProps {
@@ -21,7 +25,7 @@ const HomeTemplate: FunctionComponent<NearestMeetingsProps> = ({ nearestMeetings
         </header>
         <section>
             {
-                nearestMeetings.map(nearestMeeting => <NearestMeeting {...nearestMeeting}/>)
+                nearestMeetings.map(nearestMeeting => <NearestMeeting key={nearestMeeting._id} {...nearestMeeting}/>)
             }
         </section>
     </>
