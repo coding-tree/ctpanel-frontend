@@ -9,27 +9,27 @@ interface NavbarElement {
 const navbarElements: Array<NavbarElement> = [
     {    
         icon: "fa-home",
-        link: "string",
+        link: "string1",
         linkText: "Strona główna"
     },
     {    
         icon: "fa-clock",
-        link: "string",
+        link: "string2",
         linkText: "Harmonogram"
     },
     {    
         icon: "fa-database",
-        link: "string",
+        link: "string3",
         linkText: "Baza tematów"
     },
     {    
         icon: "fa-calendar-alt",
-        link: "string",
+        link: "string4",
         linkText: "Historia"
     },
     {    
         icon: "fa-user-circle",
-        link: "string",
+        link: "string5",
         linkText: "Konto"
     }
 ];
@@ -45,7 +45,7 @@ const NavigationBar: FunctionComponent = () => (
            <ul>
                 {
                     navbarElements.map(({icon, link, linkText}) => (
-                        <li>
+                        <li key={link}>
                             <i className={`fas ${icon}`}></i>
                             <a>
                                 {linkText}
