@@ -8,9 +8,9 @@ interface NearestMeetingsResult {
    duration: string,
    leader: string,
    meetingHref: string,
-   //tags: Array<string>,
+   tags: Array<string>,
    topic: string,
-   //usefulLinks: Array<string>,
+   usefulLinks: Array<string>,
    _id: string
 };
 
@@ -22,7 +22,7 @@ async function getNearestMeetings<T>(): Promise<T> {
 
 const HomePage: FunctionComponent = () => {
    const [nearestMeetings, setNearestMeetings] = useState<NearestMeetingsResult[]>([]);
-
+   console.log(nearestMeetings);
    useEffect(() => {
       getNearestMeetings<NearestMeetingsResult[]>()
       .then((receivedLastMeets) => setNearestMeetings(receivedLastMeets));
@@ -34,31 +34,3 @@ const HomePage: FunctionComponent = () => {
 };
 
 export default HomePage;
-
-// const fakeData = [
-//    {
-//       author: "Damian",
-//       title: "Tytuł pierwszy",
-//       date: new Date(1995,11,16),
-//       description: "Opis pierwszy"
-//    },
-//    {
-//       author: "Paweł",
-//       title: "Tytuł drugi",
-//       date: new Date(1925,11,11),
-//       description: "Opis drugi",
-//       usableLinks: [
-//          "www.w3s.com"
-//       ]
-//    },
-//    {
-//       author: "Kazimierz",
-//       title: "Tytuł trzeci",
-//       date: new Date(1995,8,17),
-//       description: "Opis trzeci",
-//       usableLinks: [
-//          "www.w3s.com",
-//          "www.facebook.com"
-//       ]
-//    }
-// ];
