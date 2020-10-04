@@ -1,24 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-type NearestMeetingProps = {
-    // author: string,
-    // title: string,
-    // date: Date,
-    // description: string,
-    // usableLinks?: Array<string>
+import NearestMeetingsModel from 'types/NearestMeetings.model';
 
-    date: number,
-    description: string,
-    duration: string,
-    leader: string,
-    meetingHref: string,
-    //tags: Array<string>,
-    topic: string,
-    //usefulLinks: Array<string>,
-    _id: string
-};
-
-const NearestMeeting: FunctionComponent<NearestMeetingProps> = ({date, description, duration, leader, meetingHref, topic, _id}) => (
+const NearestMeeting: FunctionComponent<NearestMeetingsModel> = ({date, description, duration, leader, meetingHref, topic, _id}) => (
     <article key={_id}>
         <header>
             <p className="author">

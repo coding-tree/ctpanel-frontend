@@ -1,18 +1,10 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 
+import NearestMeetingsModel from 'types/NearestMeetings.model';
+
 import HomeTemplate from 'templates/HomeTemplate';
 
-interface NearestMeetingsResult {
-   date: number,
-   description: string,
-   duration: string,
-   leader: string,
-   meetingHref: string,
-   tags: Array<string>,
-   topic: string,
-   usefulLinks: Array<string>,
-   _id: string
-};
+
 
 async function getNearestMeetings<T>(): Promise<T> {
    const response = await fetch(`https://api.ctpanel.pl/meetings/last?amount=3`, { credentials: 'include' });
@@ -21,10 +13,10 @@ async function getNearestMeetings<T>(): Promise<T> {
 };
 
 const HomePage: FunctionComponent = () => {
-   const [nearestMeetings, setNearestMeetings] = useState<NearestMeetingsResult[]>([]);
+   const [nearestMeetings, setNearestMeetings] = useState<NearestMeetingsModel[]>([]);
    console.log(nearestMeetings);
    useEffect(() => {
-      getNearestMeetings<NearestMeetingsResult[]>()
+      getNearestMeetings<NearestMeetingsModel[]>()
       .then((receivedLastMeets) => setNearestMeetings(receivedLastMeets));
    }, []);
 
