@@ -6,8 +6,8 @@ import NearestMeetingHeader from 'components/molecules/NearestMeetingHeader';
 import NearestMeetingPost from 'components/molecules/NearestMeetingPost';
 
 interface NearestMeetingsProps {
-    nearestMeetings: Array<NearestMeetingsModel>
-    theNearestMeeting: TheNearestMeetingsModel
+    nearestMeetings: Array<NearestMeetingsModel>;
+    theNearestMeeting: TheNearestMeetingsModel;
 };
 
 const HomeTemplate: FunctionComponent<NearestMeetingsProps> = ({ theNearestMeeting, nearestMeetings }) => (
