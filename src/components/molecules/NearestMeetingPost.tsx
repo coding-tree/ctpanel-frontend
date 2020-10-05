@@ -29,7 +29,7 @@ const NearestMeetingPost: FunctionComponent<NearestMeetingsModel> = ({date, desc
                         {
                             usefulLinks.map(link => (
                                 <li>
-                                    <a>{link}</a>
+                                    <a href="/">{link}</a>
                                 </li>
                             ))
                         }

@@ -47,7 +47,7 @@ const NavigationBar: FunctionComponent = () => (
                     navbarElements.map(({icon, link, linkText}) => (
                         <li key={link}>
                             <i className={`fas ${icon}`}></i>
-                            <a>
+                            <a href="/">
                                 {linkText}
                             </a>
                         </li>
