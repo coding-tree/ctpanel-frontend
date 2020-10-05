@@ -1,4 +1,4 @@
-export default interface NearestMeetingsModel {
+interface NearestMeeting {
     date: number,
     description: string,
     duration: string,
@@ -8,4 +8,8 @@ export default interface NearestMeetingsModel {
     topic: string,
     usefulLinks: Array<string>,
     _id: string
- };
+};
+
+export interface NearestMeetingsModel extends NearestMeeting {};
+
+export interface TheNearestMeetingsModel extends NearestMeeting {};

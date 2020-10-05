@@ -1,21 +1,21 @@
 import React, { FunctionComponent } from 'react';
 
-import NearestMeetingsModel from 'types/NearestMeetings.model';
+import { NearestMeetingsModel, TheNearestMeetingsModel } from 'types/NearestMeetings.model';
 
-import NearestMeeting from 'components/molecules/NearestMeeting';
+import NearestMeetingHeader from 'components/molecules/NearestMeetingHeader';
+import NearestMeetingPost from 'components/molecules/NearestMeetingPost';
 
 interface NearestMeetingsProps {
     nearestMeetings: Array<NearestMeetingsModel>
+    theNearestMeeting: TheNearestMeetingsModel
 };
 
-const HomeTemplate: FunctionComponent<NearestMeetingsProps> = ({ nearestMeetings }) => (
+const HomeTemplate: FunctionComponent<NearestMeetingsProps> = ({ theNearestMeeting, nearestMeetings }) => (
     <>
-        <header>
-            NAJBLIŻSZE SPOTKANIE
-        </header>
+        <NearestMeetingHeader date={theNearestMeeting.date} topic={theNearestMeeting.topic}/>
         <section>
             {
-                nearestMeetings.map(nearestMeeting => <NearestMeeting key={nearestMeeting._id} {...nearestMeeting}/>)
+                nearestMeetings.map(nearestMeetings => <NearestMeetingPost key={nearestMeetings._id} {...nearestMeetings}/>)
             }
         </section>
     </>

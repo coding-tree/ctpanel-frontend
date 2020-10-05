@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import NearestMeetingsModel from 'types/NearestMeetings.model';
+import { NearestMeetingsModel } from 'types/NearestMeetings.model';
 
-const NearestMeeting: FunctionComponent<NearestMeetingsModel> = ({date, description, duration, leader, meetingHref, topic, _id}) => (
+const NearestMeetingPost: FunctionComponent<NearestMeetingsModel> = ({date, description, duration, leader, meetingHref, tags, topic, usefulLinks, _id}) => (
     <article key={_id}>
         <header>
             <p className="author">
@@ -12,20 +12,22 @@ const NearestMeeting: FunctionComponent<NearestMeetingsModel> = ({date, descript
                 {topic}
             </h1>
             <p className="date">
-                {/* {date} */}
+                {date}
             </p>
         </header>
         <section>
             <p className="description">
                 {description}
             </p>
-            <h2 className="usableLink"></h2>
-            {/* {
-                usableLinks
+            <h2 className="usableLink">
+                Przydatne linki ze spotkania
+            </h2>
+            {
+                usefulLinks
                 ?
                     <ul>
                         {
-                            usableLinks.map(link => (
+                            usefulLinks.map(link => (
                                 <li>
                                     <a>{link}</a>
                                 </li>
@@ -33,9 +35,9 @@ const NearestMeeting: FunctionComponent<NearestMeetingsModel> = ({date, descript
                         }
                     </ul>
                 :   <p>Brak przydatnych linków</p>
-            } */}
+            }
         </section>
     </article>
 );
 
-export default NearestMeeting;
+export default NearestMeetingPost;
