@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 
 interface NavbarElement {
-    icon: string,
-    link: string,
-    linkText: string
+    icon: string;
+    link: string;
+    linkText: string;
 };
 
 const navbarElements: Array<NavbarElement> = [

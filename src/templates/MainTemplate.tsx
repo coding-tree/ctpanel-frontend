@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import NavigationBar from 'components/molecules/NavigationBar';
 
 type MainTemplateProps = {
-    children: JSX.Element[] | JSX.Element
+    children: JSX.Element[] | JSX.Element;
 };
 
 const MainTemplate: FunctionComponent<MainTemplateProps> = ({ children }) => (

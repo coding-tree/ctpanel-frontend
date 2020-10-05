@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
 interface HeaderModel {
-    date: number,
-    topic: string
+    date: number;
+    topic: string;
 };
 
 const NearestMeetingHeader: FunctionComponent<HeaderModel> = ({date, topic}) => (
