@@ -15,7 +15,7 @@ const HomePage: FunctionComponent = () => {
    const [theNearestMeeting, setTheNearestMeeting] = useState<NearestMeeting>();
    
    useEffect(() => {
-      getNearestMeetings<NearestMeeting[]>()
+      getNearestMeetings()
       .then((receivedLastMeets) => {
          setNearestMeetings(receivedLastMeets);
          setTheNearestMeeting(filterTheNearestMeetingForHeader(receivedLastMeets));
