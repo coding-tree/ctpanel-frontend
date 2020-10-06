@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 
-import { NearestMeetingsModel, TheNearestMeetingsModel } from 'types/NearestMeetings.model';
+import NearestMeeting from 'types/NearestMeetings.model';
 
 import NearestMeetingHeader from 'components/molecules/NearestMeetingHeader';
 import NearestMeetingPost from 'components/molecules/NearestMeetingPost';
 
 interface NearestMeetingsProps {
-    nearestMeetings: Array<NearestMeetingsModel>;
-    theNearestMeeting: TheNearestMeetingsModel;
+    nearestMeetings: Array<NearestMeeting>;
+    theNearestMeeting: NearestMeeting;
 };
 
 const HomeTemplate: FunctionComponent<NearestMeetingsProps> = ({ theNearestMeeting, nearestMeetings }) => (
