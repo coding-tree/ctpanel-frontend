@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-import MainTemplate from 'templates/MainTemplate';
-import HomePage from 'pages/HomePage';
+import MainTemplate from 'shared/components/templates/MainTemplate';
+import HomePage from 'components/HomePage';
 
 const App: FunctionComponent = () => {
   return (

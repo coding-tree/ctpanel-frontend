@@ -2,9 +2,9 @@ import React, { useState, useEffect, FunctionComponent } from 'react';
 
 import NearestMeeting from 'types/NearestMeetings.model';
 
-import getNearestMeetings from 'api/getNearestMeetings';
+import getNearestMeetings from './api/getNearestMeetings';
 
-import HomeTemplate from 'templates/HomeTemplate';
+import HomeTemplate from 'shared/components/templates/HomeTemplate';
 
 const filterTheNearestMeetingForHeader = (nearestMeetings: NearestMeeting[]): NearestMeeting => {
    return nearestMeetings[0];

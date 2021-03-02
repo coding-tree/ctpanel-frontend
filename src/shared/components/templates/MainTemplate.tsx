@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import NavigationBar from 'components/molecules/NavigationBar';
+import NavigationBar from 'shared/components/molecules/NavigationBar';
 
 type MainTemplateProps = {
     children: JSX.Element[] | JSX.Element;

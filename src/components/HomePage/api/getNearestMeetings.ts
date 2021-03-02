@@ -1,6 +1,8 @@
 import NearestMeeting from 'types/NearestMeetings.model';
 
-export default async function getNearestMeetings(): Promise<NearestMeeting[]> {
+interface HttpResponse extends Array<NearestMeeting>{};
+
+export default async function getNearestMeetings(): Promise<HttpResponse> {
     let amountOfPosts = 3;
 
     const response = await fetch(`https://api.ctpanel.pl/meetings/last?amount=${amountOfPosts}`, { credentials: 'include' });
