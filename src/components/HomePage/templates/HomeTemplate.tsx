@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 
-import NearestMeeting from 'types/NearestMeetings.model';
+import NearestMeeting from '../types/NextMeeting.model';
 
-import NearestMeetingHeader from 'shared/components/molecules/NearestMeetingHeader';
-import NearestMeetingPost from 'shared/components/molecules/NearestMeetingPost';
+import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
+import NearestMeetingPost from '../molecules/NearestMeetingPost';
 
 interface NearestMeetingsProps {
     nearestMeetings: Array<NearestMeeting>;

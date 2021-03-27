@@ -1,4 +1,4 @@
-export default interface NearestMeeting {
+export default interface NextMeeting {
     date: number;
     description: string;
     duration: string;
