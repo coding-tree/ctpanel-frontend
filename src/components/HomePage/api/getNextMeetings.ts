@@ -1,16 +1,24 @@
 import NextMeeting from '../types/NextMeeting.model';
+import { getHttpClient } from '../../../shared/utils/http-client';
 
-interface HttpResponse extends Array<NextMeeting>{};
+type NextMeetingArray = [NextMeeting]; //alias
 
 const basicURL = 'https://api.ctpanel.pl/meetings/last';
-const meetingsQuery = '?amount=';
-const meetingsDefaultAmount = 3;
+const MEETINGS_DEFAULT_AMOUNT = '3';
 
-export default async function getNextMeetings(meetingsAmount?: number): Promise<HttpResponse> {
-    const URL = basicURL + meetingsQuery + (meetingsAmount ? meetingsAmount : meetingsDefaultAmount);
+export const getNextMeetings = async (meetingsAmount: string = MEETINGS_DEFAULT_AMOUNT): Promise<NextMeetingArray> => {
+    const params = new URLSearchParams();
+    params.append('amount', meetingsAmount);
     
-    const response = await fetch(URL, { credentials: 'include' });
-    const body = await response.json();
-
-    return body;
+    const { data } = await getHttpClient().get(basicURL, { params });
+    return data;
 };
+
+//TODO:
+//getPreviousMeetings
+//getComingMeetings
+
+//jakiś parser, który zwaliduje nam body
+
+//zmienić NextMeeting na Meeting
+//opbsługa błędów

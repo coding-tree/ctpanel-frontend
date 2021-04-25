@@ -9,3 +9,5 @@ export default interface NextMeeting {
     usefulLinks: Array<string>;
     _id: string;
 };
+
+//Zmienić folder na models i tutaj wydupcyć model
