@@ -1,6 +1,5 @@
 import NextMeeting from '../types/NextMeeting.model';
 import { getHttpClient } from '../../../shared/utils/http-client';
-
 type NextMeetingArray = [NextMeeting]; //alias
 
 const basicURL = 'https://api.ctpanel.pl/meetings/last';
@@ -10,8 +9,8 @@ export const getNextMeetings = async (meetingsAmount: string = MEETINGS_DEFAULT_
     const params = new URLSearchParams();
     params.append('amount', meetingsAmount);
     
-    const { data } = await getHttpClient().get(basicURL, { params });
-    return data;
+    const nextMeetingArray = await getHttpClient().get<NextMeetingArray>(basicURL, { params });
+    return nextMeetingArray;
 };
 
 //TODO:
