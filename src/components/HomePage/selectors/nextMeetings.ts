@@ -1,13 +1,14 @@
 import { selectorFamily, selector } from "recoil";
 import { getNextMeetings } from '../api/getNextMeetings';
+import { NextThreeMeetingsArray } from '../models/NextMeeting';
 
 export const takeNextMeetings = selectorFamily({
   key: 'takeNextMeetings',
-  get: () => async () => {
-    const response = await getNextMeetings();
-    if (response.error) {
-      throw response.error;
-    }
+  get: <T> (meetingsAmount: string) => async () => {
+    const response: T = await getNextMeetings<T>(meetingsAmount);
+    // if (response.error) {
+    //   throw response.error;
+    // }
     return response;
   },
 });
@@ -15,7 +16,7 @@ export const takeNextMeetings = selectorFamily({
 export const readNextMeetings = selector({
   key: 'readNextMeetings',
   get: ({get}) => {
-    const response = get(takeNextMeetings());
+    const response: NextThreeMeetingsArray = get<NextThreeMeetingsArray>(takeNextMeetings('3'));
     return response;
   },
 });
@@ -28,4 +29,6 @@ export const readTheNearestMeeting = selector({
   },
 });
 
-//TODO: Rambda
+//TODO:
+//1: Rambda
+//2: Obsługa błędów

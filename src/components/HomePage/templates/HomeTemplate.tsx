@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react';
-
-import NextMeeting from '../types/NextMeeting.model';
+import { NextMeeting, NextThreeMeetingsArray } from '../models/NextMeeting';
 
 import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
 import NearestMeetingPost from '../molecules/NearestMeetingPost';
 
 interface NearestMeetingsProps {
-    nearestMeetings: Array<NextMeeting>;
+    nearestMeetings: NextThreeMeetingsArray;
     theNearestMeeting: NextMeeting;
 };
 

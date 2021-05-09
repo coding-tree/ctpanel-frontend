@@ -1,4 +1,6 @@
-export default interface NextMeeting {
+import { FixedSizeArray } from 'shared/models'; 
+
+export interface NextMeeting {
     date: number;
     description: string;
     duration: string;
@@ -8,6 +10,8 @@ export default interface NextMeeting {
     topic: string;
     usefulLinks: Array<string>;
     _id: string;
-};
+}
 
-//Zmienić folder na models i tutaj wydupcyć model
+export type NextMeetingsArray = NextMeeting[];
+
+export type NextThreeMeetingsArray = FixedSizeArray<3, NextMeeting>;
