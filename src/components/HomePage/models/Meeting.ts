@@ -1,6 +1,6 @@
 import { FixedSizeArray } from 'shared/models'; 
 
-export interface NextMeeting {
+export interface Meeting {
     date: number;
     description: string;
     duration: string;
@@ -12,6 +12,10 @@ export interface NextMeeting {
     _id: string;
 }
 
-export type NextMeetingsArray = NextMeeting[];
+export type MeetingsArray = Meeting[];
 
-export type NextThreeMeetingsArray = FixedSizeArray<3, NextMeeting>;
+export type NextThreeMeetingsArray = FixedSizeArray<3, Meeting>;
+
+export type NextThreeMeetingsArrayState = NextThreeMeetingsArray | null;
+
+export type MeetingState = Meeting | null;

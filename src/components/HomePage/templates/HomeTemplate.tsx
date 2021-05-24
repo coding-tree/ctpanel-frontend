@@ -1,23 +1,33 @@
 import React, { FunctionComponent } from 'react';
-import { NextMeeting, NextThreeMeetingsArray } from '../models/NextMeeting';
-
+import { useRecoilValue } from "recoil";
+import { comingMeetingsState, incomingMeetingState } from '../atoms/nearestMeetings';
 import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
 import NearestMeetingPost from '../molecules/NearestMeetingPost';
+import { MeetingState, NextThreeMeetingsArrayState } from '../models/Meeting';
 
-interface NearestMeetingsProps {
-    nearestMeetings: NextThreeMeetingsArray;
-    theNearestMeeting: NextMeeting;
-};
+const HomeTemplate: FunctionComponent = () => {
+    const comingMeetings: NextThreeMeetingsArrayState = useRecoilValue(comingMeetingsState);
+    const incomingMeeting: MeetingState = useRecoilValue(incomingMeetingState);
 
-const HomeTemplate: FunctionComponent<NearestMeetingsProps> = ({ theNearestMeeting, nearestMeetings }) => (
-    <>
-        <NearestMeetingHeader date={theNearestMeeting.date} topic={theNearestMeeting.topic}/>
-        <section>
+    return (
+        <>
             {
-                nearestMeetings.map(nearestMeetings => <NearestMeetingPost key={nearestMeetings._id} {...nearestMeetings}/>)
+                incomingMeeting
+                ? <NearestMeetingHeader date={incomingMeeting.date} topic={incomingMeeting.topic}/>
+                : <div>ładowanie</div>
             }
-        </section>
-    </>
-);
-
+            {
+                comingMeetings
+                ?  (
+                    <section>
+                        {
+                            comingMeetings.map(comingMeetings => <NearestMeetingPost key={comingMeetings._id} {...comingMeetings}/>)
+                        }
+                    </section>
+                )
+                : <div>ładownie</div>
+            }
+        </>
+    );
+}
 export default HomeTemplate;

@@ -1,23 +1,22 @@
-import React, { FunctionComponent } from 'react';
-import { useRecoilValue } from "recoil";
-import { NextMeeting, NextThreeMeetingsArray } from './models/NextMeeting';
-
+import React, { FunctionComponent, useEffect } from 'react';
+import { useSetRecoilState } from "recoil";
+import { comingMeetingsState, incomingMeetingState } from './atoms/nearestMeetings';
+import { getComingMeetings, getIncomingMeeting } from './middlewares/readNearestMeetings';
 import HomeTemplate from './templates/HomeTemplate';
 
-import { readNextMeetings, readTheNearestMeeting } from './selectors/nextMeetings';
-
 const HomePage: FunctionComponent = () => {
-   const nearestMeetings: NextThreeMeetingsArray = useRecoilValue(readNextMeetings);
-   const theNearestMeeting: NextMeeting = useRecoilValue(readTheNearestMeeting);
-   
+   const setComingMeetings = useSetRecoilState(comingMeetingsState);
+   const setIncomingMeeting = useSetRecoilState(incomingMeetingState);
+
+   useEffect(() => {
+      const meetingsAmount = "3";
+
+      getComingMeetings(meetingsAmount, setComingMeetings);
+      getIncomingMeeting(setIncomingMeeting);
+   }, []);
+
    return (
-      <>
-         {
-            nearestMeetings && theNearestMeeting
-            ? <HomeTemplate theNearestMeeting={theNearestMeeting} nearestMeetings={nearestMeetings}/>
-            : <div>Ładowanie</div>
-         }
-      </>
+      <HomeTemplate />
    );
 };
 
