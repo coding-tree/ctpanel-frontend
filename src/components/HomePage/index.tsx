@@ -3,6 +3,7 @@ import { useSetRecoilState } from "recoil";
 import { comingMeetingsState, incomingMeetingState } from './atoms/nearestMeetings';
 import { getComingMeetings, getIncomingMeeting } from './middlewares/readNearestMeetings';
 import HomeTemplate from './templates/HomeTemplate';
+import { NextThreeMeetingsArray } from './models/Meeting';
 
 const HomePage: FunctionComponent = () => {
    const setComingMeetings = useSetRecoilState(comingMeetingsState);
@@ -11,7 +12,7 @@ const HomePage: FunctionComponent = () => {
    useEffect(() => {
       const meetingsAmount = "3";
 
-      getComingMeetings(meetingsAmount, setComingMeetings);
+      getComingMeetings<NextThreeMeetingsArray>(meetingsAmount, setComingMeetings);
       getIncomingMeeting(setIncomingMeeting);
    }, []);
 

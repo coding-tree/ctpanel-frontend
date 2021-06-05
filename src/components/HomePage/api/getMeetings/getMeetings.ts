@@ -13,8 +13,8 @@ const getMeetings =  async <T> (requestParams: GetMeetingsRequestParams): Promis
         searchParams
     } = requestParams;
 
-    const { href: requestURL } = new URL(endpoint, basicURL); 
-
+    const { href: requestURL } = new URL(endpoint, basicURL);
+  
     const nextMeetingArray = await getHttpClient(settings).get<T>(requestURL, { params: searchParams});
     return nextMeetingArray;
 };

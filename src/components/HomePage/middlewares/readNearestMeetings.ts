@@ -1,8 +1,8 @@
 import { ENDPOINTS, getMeetings } from '../api/getMeetings';
 import { GetMeetingsRequestParams } from '../models/RequestParams';
-import { Meeting, NextThreeMeetingsArray } from '../models/Meeting';
+import { Meeting } from '../models/Meeting';
 
-export const getComingMeetings = async (meetingsAmount: string, savingCallback: (response: NextThreeMeetingsArray) => void) => {
+export const getComingMeetings = async <T>(meetingsAmount: string, savingCallback: (response: T) => void) => {
     const searchParams = new URLSearchParams();
     searchParams.append('amount', meetingsAmount);
 
@@ -11,7 +11,7 @@ export const getComingMeetings = async (meetingsAmount: string, savingCallback: 
         searchParams,
     };
 
-    const comingMeetings: NextThreeMeetingsArray = await getMeetings<NextThreeMeetingsArray>(requestParams);
+    const comingMeetings: T = await getMeetings<T>(requestParams);
     savingCallback(comingMeetings);
 };
 
