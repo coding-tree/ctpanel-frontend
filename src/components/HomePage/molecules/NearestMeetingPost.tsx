@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import NearestMeeting from 'types/NearestMeetings.model';
+import { Meeting } from '../models/Meeting';
 
-const NearestMeetingPost: FunctionComponent<NearestMeeting> = ({date, description, duration, leader, meetingHref, tags, topic, usefulLinks, _id}) => (
+const NearestMeetingPost: FunctionComponent<Meeting> = ({date, description, duration, leader, meetingHref, tags, topic, usefulLinks, _id}) => (
     <article key={_id}>
         <header>
             <p className="author">

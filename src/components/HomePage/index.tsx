@@ -1,35 +1,23 @@
-import React, { useState, useEffect, FunctionComponent } from 'react';
-
-import NearestMeeting from 'types/NearestMeetings.model';
-
-import getNearestMeetings from './api/getNearestMeetings';
-
-import HomeTemplate from 'shared/components/templates/HomeTemplate';
-
-const filterTheNearestMeetingForHeader = (nearestMeetings: NearestMeeting[]): NearestMeeting => {
-   return nearestMeetings[0];
-};
+import React, { FunctionComponent, useEffect } from 'react';
+import { useSetRecoilState } from "recoil";
+import { comingMeetingsState, incomingMeetingState } from './atoms/nearestMeetings';
+import { getComingMeetings, getIncomingMeeting } from './middlewares/readNearestMeetings';
+import HomeTemplate from './templates/HomeTemplate';
+import { NextThreeMeetingsArray } from './models/Meeting';
 
 const HomePage: FunctionComponent = () => {
-   const [nearestMeetings, setNearestMeetings] = useState<NearestMeeting[]>();
-   const [theNearestMeeting, setTheNearestMeeting] = useState<NearestMeeting>();
-   
+   const setComingMeetings = useSetRecoilState(comingMeetingsState);
+   const setIncomingMeeting = useSetRecoilState(incomingMeetingState);
+
    useEffect(() => {
-      getNearestMeetings()
-      .then((receivedLastMeets) => {
-         setNearestMeetings(receivedLastMeets);
-         setTheNearestMeeting(filterTheNearestMeetingForHeader(receivedLastMeets));
-      });
+      const meetingsAmount = "3";
+
+      getComingMeetings<NextThreeMeetingsArray>(meetingsAmount, setComingMeetings);
+      getIncomingMeeting(setIncomingMeeting);
    }, []);
 
    return (
-      <>
-         {
-            nearestMeetings && theNearestMeeting
-            ? <HomeTemplate theNearestMeeting={theNearestMeeting} nearestMeetings={nearestMeetings}/>
-            : <div>Ładowanie</div>
-         }
-      </>
+      <HomeTemplate />
    );
 };
 
