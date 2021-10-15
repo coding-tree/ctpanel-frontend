@@ -19,9 +19,9 @@ const NearestMeetingPost: FunctionComponent<Meeting> = ({date, description, dura
             <p className="description">
                 {description}
             </p>
-            <h2 className="usableLink">
+            <h5 className="usableLink">
                 Przydatne linki ze spotkania
-            </h2>
+            </h5>
             {
                 usefulLinks
                 ?
