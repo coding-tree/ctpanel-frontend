@@ -1,6 +1,11 @@
 import { atom } from 'recoil';
 import { Meeting } from '../../models/Meeting';
 
+export const apiCallID = atom({
+    key: 'apiCallID',
+    default: 0,
+});
+
 export const commingMeetingAmountState = atom({
     key: 'commingMeetingAmountState',
     default: 3
