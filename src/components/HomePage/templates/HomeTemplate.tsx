@@ -5,20 +5,34 @@ import { comingMeetingsState } from '../store/selectors/index';
 import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
 import NearestMeetingPost from '../molecules/NearestMeetingPost';
 import { Meeting, MeetingsArray } from '../models/Meeting';
-import { useAPICallsInInterval } from '../hooks/useAPICallsInInterval';
+import useRecoilInterval from '../../../shared/hooks/useRecoilInterval';
+import { apiCallID } from '../store/atoms/nearestMeetings';
 
 const HomeTemplate: FunctionComponent = () => {
     const comingMeetings: MeetingsArray | [] = useRecoilValue(comingMeetingsState);
     const incomingMeeting: Meeting | null = useRecoilValue(incomingMeetingState);
     const [commingMeetingAmount, updateCommingMeetingAmount] = useRecoilState(commingMeetingAmountState);
 
-    const { apiCallsON, handleApiCalls } = useAPICallsInInterval();
+    const [state, setIntervalTime, isIntervalActive, setIntervalStatus] = useRecoilInterval(
+        apiCallID,
+        (setState: any) => {
+          setState((state: any) => state + 1);
+        },
+        5000
+      );
+      
+      const stop = () => {
+        setIntervalStatus(false);
+      };
+    
+      const setTime = () => {
+        setIntervalStatus(true)
+      }
 
     return (
         <>
-            <button onClick={handleApiCalls}>
-                {apiCallsON ? 'Wyłącz' : 'Włącz'}  API CALLS co 2 sekundy
-            </button>
+            <button onClick={setTime}>Włącz</button>
+            <button onClick={stop}>Wyłącz</button>
             {
                 incomingMeeting
                 ? <NearestMeetingHeader date={incomingMeeting.date} topic={incomingMeeting.topic}/>
