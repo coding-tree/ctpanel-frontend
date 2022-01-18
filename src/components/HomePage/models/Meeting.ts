@@ -10,4 +10,4 @@ export interface Meeting {
     _id: string;
 }
 
-export type MeetingsArray = Meeting[];
+export type MeetingsArray = Meeting[] | null;
