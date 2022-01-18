@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { useRecoilValue } from "recoil";
-import { comingMeetingsState, incomingMeetingState } from '../atoms/nearestMeetings';
+import { comingMeetingsState } from '../store/selectors/comingMeetingsState';
+import { incomingMeetingState } from '../store/selectors/incomingMeetingState';
 import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
 import NearestMeetingPost from '../molecules/NearestMeetingPost';
-import { MeetingState, NextThreeMeetingsArrayState } from '../models/Meeting';
+import { Meeting, MeetingsArray } from '../models/Meeting';
 
 const HomeTemplate: FunctionComponent = () => {
-    const comingMeetings: NextThreeMeetingsArrayState = useRecoilValue(comingMeetingsState);
-    const incomingMeeting: MeetingState = useRecoilValue(incomingMeetingState);
+    const comingMeetings: MeetingsArray | [] = useRecoilValue(comingMeetingsState);
+    const incomingMeeting: Meeting | null = useRecoilValue(incomingMeetingState);
 
     return (
         <>
