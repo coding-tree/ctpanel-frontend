@@ -1,5 +1,5 @@
-import { getHttpClient } from '../../../../shared/utils/http-client';
-import { GetMeetingsRequestParams } from '../../models/RequestParams';
+import { getHttpClient } from 'shared/utils/http-client';
+import { GetMeetingsRequestParams } from 'pages/HomePage/models/RequestParams';
 
 const basicURL = 'https://api.ctpanel.pl/';
 

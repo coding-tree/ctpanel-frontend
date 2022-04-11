@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { useRecoilValue } from "recoil";
-import { comingMeetingsState } from '../store/selectors/comingMeetingsState';
-import { incomingMeetingState } from '../store/selectors/incomingMeetingState';
+import { useComingMeetingsState } from '../../store/selectors/comingMeetingsState';
+import { useIncomingMeetingState } from '../../store/selectors/incomingMeetingState';
 import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
 import NearestMeetingPost from '../molecules/NearestMeetingPost';
-import { Meeting, MeetingsArray } from '../models/Meeting';
 
 const HomeTemplate: FunctionComponent = () => {
-    const comingMeetings: MeetingsArray | [] = useRecoilValue(comingMeetingsState);
-    const incomingMeeting: Meeting | null = useRecoilValue(incomingMeetingState);
+    const { comingMeetings } = useComingMeetingsState();
+    const { incomingMeeting } = useIncomingMeetingState();
 
     return (
         <>
@@ -29,6 +27,7 @@ const HomeTemplate: FunctionComponent = () => {
                 : <div>ładownie</div>
             }
         </>
-    );
-}
+    )
+};
+
 export default HomeTemplate;

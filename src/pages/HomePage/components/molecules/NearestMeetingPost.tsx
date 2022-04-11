@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
-
-import { Meeting } from '../models/Meeting';
+import { Meeting } from 'pages/HomePage/models/Meeting';
 
 const NearestMeetingPost: FunctionComponent<Meeting> = ({date, description, duration, leader, meetingHref, tags, topic, usefulLinks, _id}) => (
     <article key={_id}>
