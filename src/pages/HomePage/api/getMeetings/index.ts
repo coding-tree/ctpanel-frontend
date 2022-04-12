@@ -3,7 +3,7 @@ import { GetMeetingsRequestParams } from 'pages/HomePage/models/RequestParams';
 
 const basicURL = 'https://api.ctpanel.pl/';
 
-const getMeetings =  async <T> (requestParams: GetMeetingsRequestParams): Promise<T> => {
+export const getMeetings =  async <T> (requestParams: GetMeetingsRequestParams): Promise<T> => {
     const settings = {
         areInterceptors: true,
     };
@@ -18,8 +18,6 @@ const getMeetings =  async <T> (requestParams: GetMeetingsRequestParams): Promis
     const nextMeetingArray = await getHttpClient(settings).get<T>(requestURL, { params: searchParams});
     return nextMeetingArray;
 };
-
-export default getMeetings;
 
 //TODO:
 //1: getPreviousMeetings

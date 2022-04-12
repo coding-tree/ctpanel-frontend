@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { useComingMeetingsState } from '../../store/selectors/comingMeetingsState';
-import { useIncomingMeetingState } from '../../store/selectors/incomingMeetingState';
-import NearestMeetingHeader from '../molecules/NearestMeetingHeader';
-import NearestMeetingPost from '../molecules/NearestMeetingPost';
+import { useComingMeetingsState } from 'pages/HomePage/hooks/useComingMeetings';
+import { useIncomingMeetingState } from 'pages/HomePage/hooks/useIncomingMeeting';
+import NearestMeetingHeader from 'pages/HomePage/components/molecules/NearestMeetingHeader';
+import NearestMeetingPost from 'pages/HomePage/components/molecules/NearestMeetingPost';
 
 const HomeTemplate: FunctionComponent = () => {
     const { comingMeetings } = useComingMeetingsState();
