@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import HomeTemplate from './templates/HomeTemplate';
+import HomeTemplate from 'pages/HomePage/components/templates/HomeTemplate';
 
 const HomePage: FunctionComponent = () => {
    return (
