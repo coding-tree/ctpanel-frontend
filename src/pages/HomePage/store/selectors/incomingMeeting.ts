@@ -6,7 +6,6 @@ export const incomingMeetingState = selectorFamily({
     key: 'incomingMeetingState',
     get: requestID => async ({get}) => {
         get(requestIDState(requestID));
-
         return await getIncomingMeeting();
     },
 });

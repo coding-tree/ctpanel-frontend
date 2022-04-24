@@ -8,8 +8,12 @@ interface HttpClientSettings {
     areInterceptors?: boolean,
 }
 
+const baseURL = `https://api.ctpanel.pl/`;
+
 export const getHttpClient = (settings: HttpClientSettings = {}) => {
-    const client = axios.create();
+    const client = axios.create({
+        baseURL,
+    });
 
     const handleResponse = ({data}: AxiosResponse) => data;
 
